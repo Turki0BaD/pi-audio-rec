@@ -5,11 +5,11 @@ import time
 
 def recorde(rt):
     audio = pyaudio.PyAudio()
-    stream = audio.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=1024)
+    stream = audio.open(format=pyaudio.paInt16, channels=1, rate=44100, input=True, frames_per_buffer=4096, input_device_index=1)
     frames = []
     timeout = time.time() + rt
     while True:
-        data = stream.read(1024)
+        data = stream.read(4096)
         frames.append(data)
         if data == rt or time.time() > timeout:
             break
