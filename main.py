@@ -4,15 +4,15 @@ import PiRecord
 import PiTimeControl
 
 S = datetime.now()
-CT = S.strftime("%H:%M:%S")
-I = "24:01:01"
+CT = S.strftime('%H:%M:%S')
+I = '24:01:01'
 x = 0
 
 
 while S != I:
     S = datetime.now()
-    CT = S.strftime("%H:%M:%S")
+    CT = S.strftime('%H:%M:%S')
     time.sleep(1)
-    if CT in PiTimeControl.rectime:
+    if CT in PiTimeControl.reclength:
         rt = PiTimeControl.reclength[CT]
         PiRecord.recorde(rt)

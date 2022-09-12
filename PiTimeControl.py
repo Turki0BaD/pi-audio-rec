@@ -1,13 +1,13 @@
 import time
 from datetime import datetime
 
+RECschedule = {}
+with open("RECTIME.txt") as f:
+    for line in f:
+        (key, val) = line.split()
+        RECschedule[str(key)] = int(val)
+
 S = datetime.now()
-CT = S.strftime("%H:%M:%S")
-rectime = {"11:07:00", "11:08:00", "10:09:00", "10:10:00", "10:11:00"}
-reclength = {
-    "11:07:00": 30,
-    "11:08:00": 15,
-    "10:09:00": 30,
-    "10:10:00": 40,
-    "10:11:00": 55,
-}
+CT = S.strftime('%H:%M:%S')
+
+reclength = RECschedule

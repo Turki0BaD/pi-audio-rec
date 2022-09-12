@@ -1,6 +1,7 @@
 import pyaudio
 import wave
 import time
+from datetime import datetime
 
 
 def recorde(rt):
@@ -14,11 +15,13 @@ def recorde(rt):
         if data == rt or time.time() > timeout:
             break
 
+    S = datetime.now()
+    CT = S.strftime('%m-%d %H;%M')
     stream.stop_stream()
     stream.close()
     audio.terminate()
 
-    sound_file = wave.open("hmm.wav", "wb")
+    sound_file = wave.open(CT+".wav", "wb")
     sound_file.setnchannels(1)
     sound_file.setsampwidth(audio.get_sample_size(pyaudio.paInt16))
     sound_file.setframerate(44100)
