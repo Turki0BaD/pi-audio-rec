@@ -2,7 +2,7 @@ import time
 from datetime import datetime
 
 RECschedule = {}
-with open("recpi/RECTIME.txt") as f:
+with open("RECTIME.txt") as f:
     for line in f:
         (key, val) = line.split()
         RECschedule[str(key)] = int(val)
