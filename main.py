@@ -11,7 +11,7 @@ RECschedule = {}
 reclength = {}
 while S != I:
     RECschedule = {}
-    with open("RECTIME.txt") as f:
+    with open("recpi/RECTIME.txt") as f:
         for line in f:
             (key, val) = line.split()
             RECschedule[str(key)] = int(val)
