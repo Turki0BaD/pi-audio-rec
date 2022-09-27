@@ -11,14 +11,19 @@ RECschedule = {}
 reclength = {}
 while S != I:
     RECschedule = {}
-    with open("recpi/RECTIME.txt") as f:
+    with open("RECTIME.txt") as f:
         for line in f:
-            (key, val) = line.split()
-            RECschedule[str(key)] = int(val)
+            try:
+                (key, val) = line.split()
+            except ValueError:
+                pass
+            else:
+                RECschedule[str(key)] = int(val)
     reclength = RECschedule
     S = datetime.now()
     CT = S.strftime('%H:%M:%S')
     time.sleep(1)
+    print(reclength)
     if CT in reclength:
         rt = reclength[CT]
         PiRecord.recorde(rt)
