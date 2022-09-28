@@ -23,7 +23,6 @@ while S != I:
     S = datetime.now()
     CT = S.strftime('%H:%M:%S')
     time.sleep(1)
-    print(reclength)
     if CT in reclength:
         rt = reclength[CT]
         PiRecord.recorde(rt)
